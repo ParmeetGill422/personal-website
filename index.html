@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parmeet Gill — IT & Cybersecurity Professional</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Interactive Canvas Background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">PG</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <span class="toggle-track">
+          <span class="toggle-thumb"></span>
+          <span class="toggle-icon sun">☀</span>
+          <span class="toggle-icon moon">☾</span>
+        </span>
+      </button>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#education" class="mobile-link">Education</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-photo-wrap">
+          <img src="assets/pfp.jpg" alt="Parmeet Gill" class="hero-photo" id="heroPhoto" />
+          <div class="hero-photo-ring"></div>
+        </div>
+        <div class="hero-text">
+          <p class="hero-eyebrow">Hello, I'm</p>
+          <h1 class="hero-name">Parmeet<br /><span>Gill</span></h1>
+          <p class="hero-tagline">IT Support Specialist &amp; Aspiring Cybersecurity Professional</p>
+          <p class="hero-location">📍 Bellevue, WA</p>
+          <div class="hero-cta">
+            <a href="#experience" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Career Summary</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              IT Support Specialist with <strong>2+ years of enterprise experience</strong> resolving
+              high-volume technical incidents across Windows environments, Active Directory, and M365
+              infrastructure.
+            </p>
+            <p>
+              Skilled in <strong>authentication troubleshooting</strong>, log review, endpoint
+              configuration, and identity lifecycle management. Experienced in incident escalation and
+              enforcing governance policies within corporate environments.
+            </p>
+            <p>
+              Currently pursuing <strong>CompTIA Security+</strong> and <strong>Network+</strong> to
+              advance into cybersecurity operations roles.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years Enterprise Experience</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">95%</span>
+              <span class="stat-label">SLA Adherence at Microsoft</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">100+</span>
+              <span class="stat-label">User Accounts Provisioned</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">23+</span>
+              <span class="stat-label">Global Studios Supported</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+
+          <!-- Microsoft — Service Engineer -->
+          <div class="timeline-item" data-aos>
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="company-tag">Microsoft</span>
+                  <h3 class="job-title">Service Engineer — XBOX | XGSIT | GPSO</h3>
+                </div>
+                <span class="job-date">Aug 2025 – Jan 2026</span>
+              </div>
+              <ul class="job-bullets">
+                <li>Resolved 30–40 Tier 1–2 incidents weekly across 23+ global studios while maintaining <strong>95% SLA adherence</strong></li>
+                <li>Analyzed authentication failures and reviewed system logs to support incident response and risk mitigation efforts</li>
+                <li>Provisioned and decommissioned <strong>100+ user accounts</strong> in Azure AD while enforcing least-privilege principles</li>
+                <li>Processed 50+ hardware/software RMAs, improving asset turnaround time by <strong>20%</strong></li>
+                <li>Escalated potential security events according to corporate response procedures</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Amazon -->
+          <div class="timeline-item" data-aos>
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="company-tag">Amazon</span>
+                  <h3 class="job-title">Badging Specialist</h3>
+                </div>
+                <span class="job-date">Nov 2023 – Nov 2025</span>
+              </div>
+              <ul class="job-bullets">
+                <li>Supported physical identity management operations for a <strong>500+ employee</strong> facility</li>
+                <li>Reviewed badge access logs to identify anomalous activity and reduce unauthorized entry risks</li>
+                <li>Resolved <strong>20+ credential discrepancies</strong> weekly while maintaining 100% compliance with corporate governance policies</li>
+                <li>Coordinated cross-functionally to streamline identity verification and onboarding workflows</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Microsoft — IT Support -->
+          <div class="timeline-item" data-aos>
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="company-tag">Microsoft</span>
+                  <h3 class="job-title">IT Support</h3>
+                </div>
+                <span class="job-date">Dec 2021 – Oct 2022</span>
+              </div>
+              <ul class="job-bullets">
+                <li>Diagnosed and resolved <strong>25+ weekly</strong> hardware, software, and network incidents in a corporate environment</li>
+                <li>Analyzed account authentication issues and group policy conflicts within Active Directory</li>
+                <li>Deployed and configured <strong>100+ endpoints</strong> using SCCM imaging and configuration tools</li>
+                <li>Reduced ticket resolution time by <strong>18%</strong> through workflow optimization and improved escalation routing</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+
+          <div class="project-card" data-aos>
+            <div class="project-icon">🛒</div>
+            <h3 class="project-name">A-Better-Easy-Shop</h3>
+            <p class="project-desc">
+              A full-featured <strong>e-commerce web application</strong> that enables users to browse,
+              select, and purchase products online with ease. Built with a clean, intuitive interface
+              focused on user experience.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Web App</span>
+              <span class="tag">E-Commerce</span>
+            </div>
+            <a href="https://github.com/ParmeetGill422/A-Better-Easy-Shop" target="_blank" rel="noopener" class="project-link">
+              View on GitHub →
+            </a>
+          </div>
+
+          <div class="project-card" data-aos>
+            <div class="project-icon">🥪</div>
+            <h3 class="project-name">DELI-cious</h3>
+            <p class="project-desc">
+              An <strong>object-oriented Java CLI application</strong> that emulates a point-of-sale
+              system for a deli. Demonstrates strong OOP principles, class design, and real-world
+              business logic implementation.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">CLI</span>
+              <span class="tag">OOP</span>
+            </div>
+            <a href="https://github.com/ParmeetGill422/DELI-cious" target="_blank" rel="noopener" class="project-link">
+              View on GitHub →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+
+          <div class="skill-group" data-aos>
+            <h4 class="skill-group-title">Identity &amp; Access</h4>
+            <div class="skill-pills">
+              <span class="pill">Active Directory</span>
+              <span class="pill">Azure AD (Entra ID)</span>
+              <span class="pill">Identity &amp; Access Management</span>
+              <span class="pill">Least-Privilege Principles</span>
+            </div>
+          </div>
+
+          <div class="skill-group" data-aos>
+            <h4 class="skill-group-title">Systems &amp; Platforms</h4>
+            <div class="skill-pills">
+              <span class="pill">Windows 10/11</span>
+              <span class="pill">Microsoft 365 (M365)</span>
+              <span class="pill">SCCM Imaging</span>
+              <span class="pill">ServiceNow</span>
+            </div>
+          </div>
+
+          <div class="skill-group" data-aos>
+            <h4 class="skill-group-title">Security &amp; Monitoring</h4>
+            <div class="skill-pills">
+              <span class="pill">SIEM Concepts</span>
+              <span class="pill">Log Analysis</span>
+              <span class="pill">Incident Response Lifecycle</span>
+              <span class="pill">Alert Triage</span>
+              <span class="pill">Threat Detection</span>
+            </div>
+          </div>
+
+          <div class="skill-group" data-aos>
+            <h4 class="skill-group-title">Networking</h4>
+            <div class="skill-pills">
+              <span class="pill">TCP/IP</span>
+              <span class="pill">DNS</span>
+              <span class="pill">VPN Troubleshooting</span>
+              <span class="pill">Firewall Fundamentals</span>
+              <span class="pill">Network Traffic Analysis</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION & CERTS ── -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education &amp; Certifications</h2>
+        <div class="edu-certs-grid">
+
+          <div class="edu-col">
+            <h3 class="subsection-title">Education</h3>
+            <div class="edu-card" data-aos>
+              <div class="edu-icon">🎓</div>
+              <div>
+                <p class="edu-school">Bellevue College</p>
+                <p class="edu-program">STEM Program</p>
+              </div>
+            </div>
+            <div class="edu-card" data-aos>
+              <div class="edu-icon">💻</div>
+              <div>
+                <p class="edu-school">Year Up United</p>
+                <p class="edu-program">Java &amp; Python Pathway</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-col">
+            <h3 class="subsection-title">Certifications</h3>
+            <div class="certs-list">
+              <div class="cert-item" data-aos>
+                <div class="cert-status in-progress">In Progress</div>
+                <p class="cert-name">CompTIA Security+</p>
+              </div>
+              <div class="cert-item" data-aos>
+                <div class="cert-status in-progress">In Progress</div>
+                <p class="cert-name">CompTIA Network+</p>
+              </div>
+              <div class="cert-item" data-aos>
+                <div class="cert-status earned">Earned</div>
+                <p class="cert-name">Microsoft AZ-900</p>
+              </div>
+              <div class="cert-item" data-aos>
+                <div class="cert-status earned">Earned</div>
+                <p class="cert-name">Microsoft AZ-800</p>
+              </div>
+              <div class="cert-item" data-aos>
+                <div class="cert-status earned">Earned</div>
+                <p class="cert-name">AWS Cloud Practitioner</p>
+              </div>
+              <div class="cert-item" data-aos>
+                <div class="cert-status earned">Earned</div>
+                <p class="cert-name">Foundations of Cybersecurity</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-sub">Open to IT, cybersecurity, and infrastructure opportunities.</p>
+        <div class="contact-cards">
+          <a href="mailto:parmeetgill422@gmail.com" class="contact-card">
+            <span class="contact-icon">✉</span>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">parmeetgill422@gmail.com</span>
+          </a>
+          <a href="tel:4253516585" class="contact-card">
+            <span class="contact-icon">📞</span>
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">(425) 351-6585</span>
+          </a>
+          <a href="https://www.linkedin.com/in/parmeet-gill-gill5757" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon">in</span>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">parmeet-gill-gill5757</span>
+          </a>
+          <a href="https://github.com/ParmeetGill422" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon">⌥</span>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">ParmeetGill422</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2026 Parmeet Gill — Built with passion &amp; code.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

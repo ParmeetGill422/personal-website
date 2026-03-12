@@ -1,0 +1,5 @@
+IMPORTANT: Add your profile photo here!
+
+Save your profile picture as: assets/pfp.jpg
+
+The website is configured to load: assets/pfp.jpg
