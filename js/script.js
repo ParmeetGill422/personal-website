@@ -237,14 +237,13 @@ initParticles();
 
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isOpen = !dropdown.hidden;
-    dropdown.hidden = isOpen;
-    btn.setAttribute('aria-expanded', String(!isOpen));
+    const isOpen = dropdown.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
   });
 
   // Close when clicking outside
   document.addEventListener('click', () => {
-    dropdown.hidden = true;
+    dropdown.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false');
   });
 
