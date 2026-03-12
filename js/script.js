@@ -46,7 +46,7 @@
   animateRing();
 
   // Hover effect on interactive elements
-  const hoverTargets = 'a, button, .stat-card, .project-card, .contact-card, .skill-group, .cert-item, .edu-card';
+  const hoverTargets = 'a, button, .stat-card, .project-card, .contact-card, .skill-group, .cert-item, .edu-card, .social-icon';
   document.querySelectorAll(hoverTargets).forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -229,6 +229,28 @@ function initParticles() {
 
 initParticles();
 
+/* ── EMAIL DROPDOWN ──────────────────────────────────────────── */
+(function () {
+  const btn      = document.getElementById('emailBtn');
+  const dropdown = document.getElementById('emailDropdown');
+  if (!btn || !dropdown) return;
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  // Prevent closing when clicking inside the dropdown
+  dropdown.addEventListener('click', (e) => e.stopPropagation());
+})();
+
 /* ── SMOOTH ACTIVE NAV LINK ──────────────────────────────────── */
 (function () {
   const sections = document.querySelectorAll('main section[id]');
@@ -247,27 +269,6 @@ initParticles();
   sections.forEach(s => observer.observe(s));
 })();
 
-/* ── PHOTO FALLBACK ──────────────────────────────────────────── */
-(function () {
-  const img = document.getElementById('heroPhoto');
-  if (!img) return;
-  img.addEventListener('error', () => {
-    const wrap = img.parentElement;
-    img.remove();
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width', '220');
-    svg.setAttribute('height', '220');
-    svg.setAttribute('viewBox', '0 0 220 220');
-    svg.setAttribute('class', 'hero-photo');
-    svg.style.cssText = 'border-radius:50%;border:3px solid var(--gold);box-shadow:0 0 40px rgba(201,168,76,0.3)';
-    svg.innerHTML = `
-      <circle cx="110" cy="110" r="110" fill="#1a2236"/>
-      <text x="110" y="130" text-anchor="middle" font-family="Playfair Display,serif"
-        font-size="72" font-weight="700" fill="#c9a84c">PG</text>
-    `;
-    wrap.insertBefore(svg, wrap.firstChild);
-  });
-})();
 
 /* ── ACTIVE LINK STYLE ───────────────────────────────────────── */
 const style = document.createElement('style');
