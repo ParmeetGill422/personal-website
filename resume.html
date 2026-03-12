@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parmeet Gill — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── SCREEN STYLES ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0ece4;
+      color: #1a1714;
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* Download bar */
+    .download-bar {
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      font-size: 0.85rem;
+      color: #8b6914;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #c9a84c; }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #c9a84c;
+      color: #0d1117;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .download-btn:hover {
+      background: #e0c472;
+      transform: translateY(-1px);
+    }
+
+    /* Resume paper */
+    .resume {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      border-radius: 4px;
+    }
+
+    /* Header */
+    .r-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 2px solid #c9a84c;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .r-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1a1714;
+      line-height: 1;
+    }
+
+    .r-contact {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #4a4540;
+      line-height: 1.8;
+    }
+    .r-contact a { color: #8b6914; text-decoration: none; }
+    .r-contact a:hover { text-decoration: underline; }
+
+    /* Sections */
+    .r-section { margin-bottom: 1.5rem; }
+
+    .r-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #1a1714;
+      border-bottom: 1px solid #d4c9b0;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* Summary */
+    .r-summary {
+      font-size: 0.85rem;
+      color: #2c2a25;
+      line-height: 1.65;
+    }
+
+    /* Projects */
+    .r-project { margin-bottom: 0.5rem; }
+    .r-project-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #8b6914;
+      text-decoration: none;
+    }
+    .r-project-title:hover { text-decoration: underline; }
+    .r-project-desc {
+      font-size: 0.82rem;
+      color: #2c2a25;
+      display: inline;
+    }
+
+    /* Experience */
+    .r-job { margin-bottom: 1.1rem; }
+
+    .r-job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .r-company {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a1714;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .r-job-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #2c2a25;
+      font-style: italic;
+    }
+
+    .r-date {
+      font-size: 0.78rem;
+      color: #6b6254;
+      white-space: nowrap;
+    }
+
+    .r-bullets {
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+    }
+    .r-bullets li {
+      font-size: 0.82rem;
+      color: #2c2a25;
+      line-height: 1.55;
+      margin-bottom: 0.2rem;
+      list-style-type: disc;
+    }
+
+    /* Education */
+    .r-edu-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .r-edu-school { font-size: 0.85rem; font-weight: 700; color: #1a1714; }
+    .r-edu-program { font-size: 0.82rem; color: #6b6254; }
+
+    /* Certifications */
+    .r-certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem 1rem;
+    }
+    .r-cert {
+      font-size: 0.82rem;
+      color: #2c2a25;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .r-cert-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #c9a84c;
+      flex-shrink: 0;
+    }
+
+    /* Skills */
+    .r-skills {
+      font-size: 0.82rem;
+      color: #2c2a25;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .download-bar { display: none !important; }
+      .resume {
+        box-shadow: none;
+        padding: 0.5in 0.6in;
+        border-radius: 0;
+        max-width: 100%;
+      }
+      a { color: inherit !important; }
+      @page {
+        size: letter;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Download Bar (hidden on print) -->
+  <div class="download-bar">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    <button class="download-btn" onclick="window.print()">
+      ⬇ Download PDF
+    </button>
+  </div>
+
+  <!-- Resume Paper -->
+  <div class="resume">
+
+    <!-- Header -->
+    <div class="r-header">
+      <div class="r-name">Parmeet Gill</div>
+      <div class="r-contact">
+        <a href="mailto:parmeetgill422@gmail.com">parmeetgill422@gmail.com</a><br />
+        Bellevue, WA 98008<br />
+        (425) 351-6585<br />
+        <a href="https://www.linkedin.com/in/parmeet-gill-gill5757" target="_blank">linkedin.com/in/parmeet-gill-gill5757</a>
+      </div>
+    </div>
+
+    <!-- Career Summary -->
+    <div class="r-section">
+      <div class="r-section-title">Career Summary</div>
+      <p class="r-summary">
+        IT Support Specialist with 2+ years of enterprise experience resolving high-volume technical incidents across
+        Windows environments, Active Directory, and M365 infrastructure. Skilled in authentication troubleshooting,
+        log review, endpoint configuration, and identity lifecycle management. Experienced in incident escalation and
+        enforcing governance policies within corporate environments. Currently pursuing CompTIA Security+ and Network+
+        to advance into cybersecurity operations roles.
+      </p>
+    </div>
+
+    <!-- Projects -->
+    <div class="r-section">
+      <div class="r-section-title">Projects</div>
+      <div class="r-project">
+        <a class="r-project-title" href="https://github.com/ParmeetGill422/A-Better-Easy-Shop" target="_blank">ParmeetGill422/A-Better-Easy-Shop</a>
+        <span class="r-project-desc"> &nbsp;— e-commerce web application that enables users to browse, select, and purchase products online with ease</span>
+      </div>
+      <div class="r-project">
+        <a class="r-project-title" href="https://github.com/ParmeetGill422/DELI-cious" target="_blank">ParmeetGill422/DELI-cious</a>
+        <span class="r-project-desc"> &nbsp;— object-oriented Java CLI application that emulates a point-of-sale system</span>
+      </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="r-section">
+      <div class="r-section-title">Professional Experience</div>
+
+      <div class="r-job">
+        <div class="r-job-header">
+          <span class="r-company">Microsoft</span>
+          <span class="r-date">Aug 2025 – Jan 2026</span>
+        </div>
+        <div class="r-job-title">Service Engineer — XBOX | XGSIT | GPSO</div>
+        <ul class="r-bullets">
+          <li>Resolved 30–40 Tier 1–2 incidents weekly across 23+ global studios while maintaining 95% SLA adherence</li>
+          <li>Analyzed authentication failures and reviewed system logs to support incident response and risk mitigation efforts</li>
+          <li>Provisioned and decommissioned 100+ user accounts in Azure AD while enforcing least-privilege principles</li>
+          <li>Processed 50+ hardware/software RMAs, improving asset turnaround time by 20%</li>
+          <li>Escalated potential security events according to corporate response procedures</li>
+        </ul>
+      </div>
+
+      <div class="r-job">
+        <div class="r-job-header">
+          <span class="r-company">Amazon</span>
+          <span class="r-date">Nov 2023 – Nov 2025</span>
+        </div>
+        <div class="r-job-title">Badging Specialist</div>
+        <ul class="r-bullets">
+          <li>Supported physical identity management operations for a 500+ employee facility</li>
+          <li>Reviewed badge access logs to identify anomalous activity and reduce unauthorized entry risks</li>
+          <li>Resolved 20+ credential discrepancies weekly while maintaining 100% compliance with corporate governance policies</li>
+          <li>Coordinated cross-functionally to streamline identity verification and onboarding workflows</li>
+        </ul>
+      </div>
+
+      <div class="r-job">
+        <div class="r-job-header">
+          <span class="r-company">Microsoft</span>
+          <span class="r-date">Dec 2021 – Oct 2022</span>
+        </div>
+        <div class="r-job-title">IT Support</div>
+        <ul class="r-bullets">
+          <li>Diagnosed and resolved 25+ weekly hardware, software, and network incidents in a corporate environment</li>
+          <li>Analyzed account authentication issues and group policy conflicts within Active Directory</li>
+          <li>Deployed and configured 100+ endpoints using SCCM imaging and configuration tools</li>
+          <li>Reduced ticket resolution time by 18% through workflow optimization and improved escalation routing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="r-section">
+      <div class="r-section-title">Education</div>
+      <div class="r-edu-item">
+        <div>
+          <span class="r-edu-school">Bellevue College</span>
+          <span class="r-edu-program"> — STEM Program</span>
+        </div>
+      </div>
+      <div class="r-edu-item">
+        <div>
+          <span class="r-edu-school">Year Up United</span>
+          <span class="r-edu-program"> — Java &amp; Python Pathway</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="r-section">
+      <div class="r-section-title">Certification</div>
+      <div class="r-certs-grid">
+        <div class="r-cert"><div class="r-cert-dot"></div> CompTIA Security+ (in progress)</div>
+        <div class="r-cert"><div class="r-cert-dot"></div> Microsoft AZ-900</div>
+        <div class="r-cert"><div class="r-cert-dot"></div> AWS Cloud Practitioner</div>
+        <div class="r-cert"><div class="r-cert-dot"></div> CompTIA Network+ (in progress)</div>
+        <div class="r-cert"><div class="r-cert-dot"></div> Microsoft AZ-800</div>
+        <div class="r-cert"><div class="r-cert-dot"></div> Foundations of Cybersecurity</div>
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="r-section">
+      <div class="r-section-title">Technical Skills</div>
+      <p class="r-skills">
+        Active Directory, Azure AD (Entra ID), Identity &amp; Access Management, Windows 10/11, Microsoft 365 (M365),
+        SCCM Imaging, SIEM Concepts, Log Analysis, Incident Response Lifecycle, Alert Triage, Threat Detection,
+        TCP/IP, DNS, VPN Troubleshooting, Firewall Fundamentals, Network Traffic Analysis, ServiceNow
+      </p>
+    </div>
+
+  </div><!-- /.resume -->
+
+</body>
+</html>

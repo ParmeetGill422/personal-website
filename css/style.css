@@ -172,6 +172,19 @@ body.cursor-click .cursor-ring { width: 28px; height: 28px; }
 .nav-links a:hover { color: var(--gold); }
 .nav-links a:hover::after { width: 100%; }
 
+.nav-resume-btn {
+  color: var(--gold) !important;
+  border: 1px solid var(--gold);
+  padding: 0.3rem 0.85rem;
+  border-radius: 4px;
+  transition: background var(--transition), color var(--transition) !important;
+}
+.nav-resume-btn:hover {
+  background: var(--gold) !important;
+  color: #0d1117 !important;
+}
+.nav-resume-btn::after { display: none !important; }
+
 /* ── THEME TOGGLE ────────────────────────────────────────────── */
 .theme-toggle {
   background: none;
