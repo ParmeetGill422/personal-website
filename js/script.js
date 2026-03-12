@@ -229,6 +229,29 @@ function initParticles() {
 
 initParticles();
 
+/* ── EMAIL DROPDOWN ──────────────────────────────────────────── */
+(function () {
+  const btn      = document.getElementById('emailBtn');
+  const dropdown = document.getElementById('emailDropdown');
+  if (!btn || !dropdown) return;
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = !dropdown.hidden;
+    dropdown.hidden = isOpen;
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', () => {
+    dropdown.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+  });
+
+  // Prevent closing when clicking inside the dropdown
+  dropdown.addEventListener('click', (e) => e.stopPropagation());
+})();
+
 /* ── SMOOTH ACTIVE NAV LINK ──────────────────────────────────── */
 (function () {
   const sections = document.querySelectorAll('main section[id]');
