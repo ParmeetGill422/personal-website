@@ -305,16 +305,22 @@ document.head.appendChild(style);
 
     // ── Phase 1: Lid opens (0 → 0.45) ────────────────────────
     const p1       = easeInOut(clamp(raw / 0.45, 0, 1));
-    const lidAngle = lerp(90, 0, p1); // 90° closed (flat back) → 0° fully open (upright)
+    const lidAngle = lerp(-90, 0, p1); // -90° closed (edge-on sliver) → 0° fully open (upright)
     lid.style.transform = `rotateX(${lidAngle}deg)`;
+
+    // Screen fades in as lid opens (25% → 45% of scroll)
+    const screen = document.getElementById('lcScreen');
+    if (screen) {
+      screen.style.opacity = String(easeInOut(clamp((raw - 0.25) / 0.20, 0, 1)));
+    }
 
     // ── Phase 2: Zoom into screen (0.45 → 0.75) ──────────────
     const p2    = easeInOut(clamp((raw - 0.45) / 0.30, 0, 1));
     const isMobile = window.innerWidth < 768;
-    const maxScale  = isMobile ? 3.5 : 6;
+    const maxScale  = isMobile ? 2.5 : 3;
     const scale     = lerp(1, maxScale, p2);
-    const shiftY    = lerp(0, -60, p2);
-    computer.style.transform = `rotateX(25deg) scale(${scale}) translateY(${shiftY}px)`;
+    const shiftY    = lerp(0, 300, p2);
+    computer.style.transform = `rotateX(20deg) scale(${scale}) translateY(${shiftY}px)`;
 
     // ── Phase 3: Fade out scene (0.75 → 1.0) ─────────────────
     const p3 = easeInOut(clamp((raw - 0.75) / 0.25, 0, 1));

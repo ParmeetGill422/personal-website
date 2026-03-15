@@ -952,7 +952,7 @@ footer {
 /* Laptop wrapper — tilted so camera sees keyboard top + closed lid surface */
 .laptop-computer {
   transform-style: preserve-3d;
-  transform: rotateX(25deg);
+  transform: rotateX(20deg);
   position: relative;
   width: 520px;
   will-change: transform;
@@ -1032,7 +1032,7 @@ footer {
   height: 340px;
   transform-origin: bottom center;
   transform-style: preserve-3d;
-  transform: rotateX(90deg); /* CLOSED: lid folded back flat, exterior faces camera */
+  transform: rotateX(-90deg); /* CLOSED: edge-on sliver at top of keyboard */
   will-change: transform;
 }
 
@@ -1075,6 +1075,8 @@ footer {
   border-radius: 4px;
   overflow: hidden;
   position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 /* Screen UI content */
