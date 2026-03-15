@@ -1168,6 +1168,13 @@ footer {
 /* Zoom: JS controls transforms frame-by-frame, no CSS transition during scroll */
 .laptop-computer.zoom-active { transition: none; }
 
+/* Reduced-motion: skip the laptop scene entirely */
+@media (prefers-reduced-motion: reduce) {
+  .laptop-intro-wrapper { height: 0 !important; overflow: hidden !important; }
+  .laptop-intro-sticky  { display: none !important; }
+  #navbar.laptop-hidden { opacity: 1 !important; pointer-events: auto !important; }
+}
+
 /* Navbar hidden during laptop scene */
 #navbar {
   transition: opacity 0.4s ease, box-shadow var(--transition),

@@ -333,6 +333,15 @@ document.head.appendChild(style);
     } else {
       navbar.classList.add('laptop-hidden');
     }
+
+    // Release GPU layers once scene is fully complete
+    if (raw >= 1) {
+      lid.style.willChange      = 'auto';
+      computer.style.willChange = 'auto';
+    } else {
+      lid.style.willChange      = 'transform';
+      computer.style.willChange = 'transform';
+    }
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
