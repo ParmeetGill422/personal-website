@@ -3,19 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parmeet Gill — IT & Cybersecurity Professional</title>
+  <title>Parmeet Gill — IT &amp; Cybersecurity Professional</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <!-- ── CINEMATIC TERMINAL INTRO ── -->
+  <div id="cinematic-intro" aria-label="Intro animation" role="presentation">
+    <div class="intro-scanlines"></div>
+    <div class="intro-crt-vignette"></div>
+    <div class="intro-noise"></div>
 
-  <!-- Interactive Canvas Background -->
+    <div class="intro-terminal" id="introTerminal">
+      <div class="terminal-header">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green"></span>
+        <span class="t-title">parmeet@security ~ bash</span>
+      </div>
+      <div class="terminal-body">
+        <div id="terminalLines"></div>
+        <span class="terminal-cursor" id="terminalCursor">█</span>
+      </div>
+    </div>
+
+    <button class="intro-enter-btn" id="introEnterBtn" aria-label="Enter site">
+      <span class="enter-bracket">[</span>
+      <span class="enter-text">ENTER SITE</span>
+      <span class="enter-bracket">]</span>
+    </button>
+
+    <button class="intro-skip" id="introSkip" aria-label="Skip intro">SKIP ›</button>
+  </div>
+
+  <!-- ── FILM GRAIN ── -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- ── VIGNETTE ── -->
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- ── SCROLL PROGRESS ── -->
+  <div id="scroll-progress" aria-hidden="true">
+    <div id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ── CHAPTER NAVIGATION (right-side dots) ── -->
+  <nav class="chapter-nav" id="chapterNav" aria-label="Page sections">
+    <a href="#hero"       class="ch-dot" data-label="Top"        title="Top"></a>
+    <a href="#about"      class="ch-dot" data-label="About"      title="About"></a>
+    <a href="#experience" class="ch-dot" data-label="Experience" title="Experience"></a>
+    <a href="#projects"   class="ch-dot" data-label="Projects"   title="Projects"></a>
+    <a href="#skills"     class="ch-dot" data-label="Skills"     title="Skills"></a>
+    <a href="#education"  class="ch-dot" data-label="Education"  title="Education"></a>
+  </nav>
+
+  <!-- ── CUSTOM CURSOR + TRAIL ── -->
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div id="cursorTrail"></div>
+
+  <!-- ── INTERACTIVE CANVAS BACKGROUND ── -->
   <canvas id="bgCanvas"></canvas>
 
   <!-- ── NAVBAR ── -->
@@ -47,11 +97,11 @@
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-close" id="mobileClose">✕</button>
     <ul>
-      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#about"      class="mobile-link">About</a></li>
       <li><a href="#experience" class="mobile-link">Experience</a></li>
-      <li><a href="#projects" class="mobile-link">Projects</a></li>
-      <li><a href="#skills" class="mobile-link">Skills</a></li>
-      <li><a href="#education" class="mobile-link">Education</a></li>
+      <li><a href="#projects"   class="mobile-link">Projects</a></li>
+      <li><a href="#skills"     class="mobile-link">Skills</a></li>
+      <li><a href="#education"  class="mobile-link">Education</a></li>
       <li><a href="resume.html" target="_blank" class="mobile-link">Resume ↗</a></li>
     </ul>
   </div>
@@ -60,29 +110,26 @@
 
     <!-- ── HERO ── -->
     <section id="hero">
-      <div class="hero-content">
+      <div class="hero-content" id="heroContent">
         <p class="hero-eyebrow">Hey, it's me</p>
-        <h1 class="hero-name">Parmeet <span>Gill</span></h1>
+        <h1 class="hero-name" data-split>Parmeet <span class="name-accent">Gill</span></h1>
         <p class="hero-tagline">IT Support Specialist &amp; Aspiring Cybersecurity Professional</p>
         <div class="hero-socials">
+
           <!-- GitHub -->
           <a href="https://github.com/ParmeetGill422" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
           </a>
+
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/parmeet-gill57/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
+
           <!-- Email (dropdown chooser) -->
           <div class="email-wrapper">
             <button class="social-icon" id="emailBtn" aria-label="Email" aria-expanded="false">
-              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2-8 5-8-5h16zm0 12H4V8.868l8 5 8-5V18z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2-8 5-8-5h16zm0 12H4V8.868l8 5 8-5V18z"/></svg>
             </button>
             <div class="email-dropdown" id="emailDropdown">
               <a href="https://mail.google.com/mail/?view=cm&to=parmeetgill422@gmail.com" target="_blank" rel="noopener" class="email-opt">
@@ -95,6 +142,7 @@
               </a>
             </div>
           </div>
+
         </div>
       </div>
       <div class="hero-scroll-hint">
@@ -106,38 +154,27 @@
     <!-- ── ABOUT ── -->
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">Career Summary</h2>
+        <h2 class="section-title reveal-title">Career Summary</h2>
         <div class="about-grid">
-          <div class="about-text">
-            <p>
-              IT Support Specialist with <strong>2+ years of enterprise experience</strong> resolving
-              high-volume technical incidents across Windows environments, Active Directory, and M365
-              infrastructure.
-            </p>
-            <p>
-              Skilled in <strong>authentication troubleshooting</strong>, log review, endpoint
-              configuration, and identity lifecycle management. Experienced in incident escalation and
-              enforcing governance policies within corporate environments.
-            </p>
-            <p>
-              Currently pursuing <strong>CompTIA Security+</strong> and <strong>Network+</strong> to
-              advance into cybersecurity operations roles.
-            </p>
+          <div class="about-text" data-aos>
+            <p>IT Support Specialist with <strong>2+ years of enterprise experience</strong> resolving high-volume technical incidents across Windows environments, Active Directory, and M365 infrastructure.</p>
+            <p>Skilled in <strong>authentication troubleshooting</strong>, log review, endpoint configuration, and identity lifecycle management. Experienced in incident escalation and enforcing governance policies within corporate environments.</p>
+            <p>Currently pursuing <strong>CompTIA Security+</strong> and <strong>Network+</strong> to advance into cybersecurity operations roles.</p>
           </div>
           <div class="about-stats">
-            <div class="stat-card">
+            <div class="stat-card" data-count="2" data-suffix="+">
               <span class="stat-num">2+</span>
               <span class="stat-label">Years Enterprise Experience</span>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" data-count="95" data-suffix="%">
               <span class="stat-num">95%</span>
               <span class="stat-label">SLA Adherence at Microsoft</span>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" data-count="100" data-suffix="+">
               <span class="stat-num">100+</span>
               <span class="stat-label">User Accounts Provisioned</span>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" data-count="23" data-suffix="+">
               <span class="stat-num">23+</span>
               <span class="stat-label">Global Studios Supported</span>
             </div>
@@ -149,10 +186,9 @@
     <!-- ── EXPERIENCE ── -->
     <section id="experience" class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Professional Experience</h2>
+        <h2 class="section-title reveal-title">Professional Experience</h2>
         <div class="timeline">
 
-          <!-- Microsoft — Service Engineer -->
           <div class="timeline-item" data-aos>
             <div class="timeline-marker">
               <div class="timeline-dot"></div>
@@ -176,7 +212,6 @@
             </div>
           </div>
 
-          <!-- Amazon -->
           <div class="timeline-item" data-aos>
             <div class="timeline-marker">
               <div class="timeline-dot"></div>
@@ -199,7 +234,6 @@
             </div>
           </div>
 
-          <!-- Microsoft — IT Support -->
           <div class="timeline-item" data-aos>
             <div class="timeline-marker">
               <div class="timeline-dot"></div>
@@ -228,60 +262,55 @@
     <!-- ── PROJECTS ── -->
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title reveal-title">Projects</h2>
         <div class="projects-grid">
 
           <div class="project-card" data-aos>
-            <div class="project-icon">🛒</div>
+            <div class="project-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+            </div>
             <h3 class="project-name">A-Better-Easy-Shop</h3>
-            <p class="project-desc">
-              A full-featured <strong>e-commerce web application</strong> that enables users to browse,
-              select, and purchase products online with ease. Built with a clean, intuitive interface
-              focused on user experience.
-            </p>
+            <p class="project-desc">A full-featured <strong>e-commerce web application</strong> that enables users to browse, select, and purchase products online with ease. Built with a clean, intuitive interface focused on user experience.</p>
             <div class="project-tags">
               <span class="tag">Web App</span>
               <span class="tag">E-Commerce</span>
             </div>
-            <a href="https://github.com/ParmeetGill422/A-Better-Easy-Shop" target="_blank" rel="noopener" class="project-link">
-              View on GitHub →
-            </a>
+            <a href="https://github.com/ParmeetGill422/A-Better-Easy-Shop" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
           </div>
 
           <div class="project-card" data-aos>
-            <div class="project-icon">🛡️</div>
+            <div class="project-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
             <h3 class="project-name">LogSentinel</h3>
-            <p class="project-desc">
-              A <strong>cybersecurity log monitoring tool</strong> that parses and analyzes system logs
-              to detect suspicious activity and potential security threats. Simulates real-world
-              SIEM-style log analysis workflows for threat detection and incident response.
-            </p>
+            <p class="project-desc">A <strong>cybersecurity log monitoring tool</strong> that parses and analyzes system logs to detect suspicious activity and potential security threats. Simulates real-world SIEM-style log analysis workflows for threat detection and incident response.</p>
             <div class="project-tags">
               <span class="tag">Cybersecurity</span>
               <span class="tag">Log Analysis</span>
               <span class="tag">SIEM</span>
             </div>
-            <a href="https://github.com/ParmeetGill422/LogSentinel" target="_blank" rel="noopener" class="project-link">
-              View on GitHub →
-            </a>
+            <a href="https://github.com/ParmeetGill422/LogSentinel" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
           </div>
 
           <div class="project-card" data-aos>
-            <div class="project-icon">🥪</div>
+            <div class="project-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
             <h3 class="project-name">DELI-cious</h3>
-            <p class="project-desc">
-              An <strong>object-oriented Java CLI application</strong> that emulates a point-of-sale
-              system for a deli. Demonstrates strong OOP principles, class design, and real-world
-              business logic implementation.
-            </p>
+            <p class="project-desc">An <strong>object-oriented Java CLI application</strong> that emulates a point-of-sale system for a deli. Demonstrates strong OOP principles, class design, and real-world business logic implementation.</p>
             <div class="project-tags">
               <span class="tag">Java</span>
               <span class="tag">CLI</span>
               <span class="tag">OOP</span>
             </div>
-            <a href="https://github.com/ParmeetGill422/DELI-cious" target="_blank" rel="noopener" class="project-link">
-              View on GitHub →
-            </a>
+            <a href="https://github.com/ParmeetGill422/DELI-cious" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
           </div>
 
         </div>
@@ -291,7 +320,7 @@
     <!-- ── SKILLS ── -->
     <section id="skills" class="section section-alt">
       <div class="container">
-        <h2 class="section-title">Technical Skills</h2>
+        <h2 class="section-title reveal-title">Technical Skills</h2>
         <div class="skills-grid">
 
           <div class="skill-group" data-aos>
@@ -343,20 +372,28 @@
     <!-- ── EDUCATION & CERTS ── -->
     <section id="education" class="section">
       <div class="container">
-        <h2 class="section-title">Education &amp; Certifications</h2>
+        <h2 class="section-title reveal-title">Education &amp; Certifications</h2>
         <div class="edu-certs-grid">
 
           <div class="edu-col">
             <h3 class="subsection-title">Education</h3>
             <div class="edu-card" data-aos>
-              <div class="edu-icon">🎓</div>
+              <div class="edu-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </div>
               <div>
                 <p class="edu-school">Bellevue College</p>
                 <p class="edu-program">STEM Program</p>
               </div>
             </div>
             <div class="edu-card" data-aos>
-              <div class="edu-icon">💻</div>
+              <div class="edu-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                </svg>
+              </div>
               <div>
                 <p class="edu-school">Year Up United</p>
                 <p class="edu-program">Java &amp; Python Pathway</p>
