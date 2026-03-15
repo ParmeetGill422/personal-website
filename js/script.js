@@ -305,7 +305,7 @@ document.head.appendChild(style);
 
     // ── Phase 1: Lid opens (0 → 0.45) ────────────────────────
     const p1       = easeInOut(clamp(raw / 0.45, 0, 1));
-    const lidAngle = lerp(3, -120, p1); // 3° closed → -120° fully open
+    const lidAngle = lerp(-120, 3, p1); // -120° closed → 3° fully open
     lid.style.transform = `rotateX(${lidAngle}deg)`;
 
     // ── Phase 2: Zoom into screen (0.45 → 0.75) ──────────────
