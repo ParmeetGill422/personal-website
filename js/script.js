@@ -305,7 +305,7 @@ document.head.appendChild(style);
 
     // ── Phase 1: Lid opens (0 → 0.45) ────────────────────────
     const p1       = easeInOut(clamp(raw / 0.45, 0, 1));
-    const lidAngle = lerp(80, -15, p1); // 80° closed (lid backward, silver exterior up) → -15° open (screen faces viewer)
+    const lidAngle = lerp(90, -15, p1); // 90° = edge-on (closed thin line) → -15° = screen faces viewer (open)
     lid.style.transform = `rotateX(${lidAngle}deg)`;
 
     // Screen fades in as lid opens (25% → 45% of scroll)

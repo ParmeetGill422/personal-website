@@ -1031,8 +1031,10 @@ footer {
   width: 520px;
   height: 340px;
   transform-origin: bottom center;
-  transform-style: preserve-3d;
-  transform: rotateX(80deg); /* CLOSED: lid falls backward, silver exterior faces viewer from above */
+  /* NO preserve-3d — lid is a flat face in laptop's 3D space.
+     At rotateX(90deg) it is edge-on (thin line = closed).
+     Animates to rotateX(-15deg) = screen faces viewer = open. */
+  transform: rotateX(90deg);
   will-change: transform;
 }
 
@@ -1044,7 +1046,6 @@ footer {
   border-radius: 12px 12px 4px 4px;
   border: 2px solid rgba(255,255,255,0.1);
   box-shadow: 0 -4px 30px rgba(0,0,0,0.7), inset 0 0 0 8px #0d0e10;
-  backface-visibility: hidden;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1133,35 +1134,6 @@ footer {
   font-size: 0.5rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
-}
-
-/* Lid back face — the EXTERIOR of the closed laptop lid (visible when closed) */
-.lc-lid-back {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, #2c2f38 0%, #1a1c22 100%);
-  border-radius: 12px 12px 4px 4px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transform: rotateX(180deg);
-  backface-visibility: hidden; /* shows only when lid is closed, hides when open */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* PG logo on lid back (like Apple logo on MacBook) */
-.lc-lid-back::after {
-  content: 'PG';
-  font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--gold);
-  opacity: 0.7;
-  letter-spacing: 0.05em;
-  transform: rotateX(180deg); /* flip text right-way-up */
-}
-[data-theme="light"] .lc-lid-back {
-  background: linear-gradient(160deg, #c0c0c0 0%, #999 100%);
-  border-color: rgba(255,255,255,0.35);
 }
 
 /* Scroll prompt */
