@@ -1165,6 +1165,9 @@ footer {
 }
 .laptop-scroll-prompt.hidden { opacity: 0; pointer-events: none; }
 
+/* Zoom: JS controls transforms frame-by-frame, no CSS transition during scroll */
+.laptop-computer.zoom-active { transition: none; }
+
 /* Navbar hidden during laptop scene */
 #navbar {
   transition: opacity 0.4s ease, box-shadow var(--transition),
