@@ -1032,7 +1032,7 @@ footer {
   height: 340px;
   transform-origin: bottom center;
   transform-style: preserve-3d;
-  transform: rotateX(-90deg); /* CLOSED: edge-on sliver at top of keyboard */
+  transform: rotateX(80deg); /* CLOSED: lid falls backward, silver exterior faces viewer from above */
   will-change: transform;
 }
 
