@@ -305,7 +305,7 @@ document.head.appendChild(style);
 
     // ── Phase 1: Lid opens (0 → 0.45) ────────────────────────
     const p1       = easeInOut(clamp(raw / 0.45, 0, 1));
-    const lidAngle = lerp(-90, -15, p1);
+    const lidAngle = lerp(3, -120, p1); // 3° closed → -120° fully open
     lid.style.transform = `rotateX(${lidAngle}deg)`;
 
     // ── Phase 2: Zoom into screen (0.45 → 0.75) ──────────────
@@ -314,7 +314,7 @@ document.head.appendChild(style);
     const maxScale  = isMobile ? 3.5 : 6;
     const scale     = lerp(1, maxScale, p2);
     const shiftY    = lerp(0, -60, p2);
-    computer.style.transform = `rotateX(12deg) scale(${scale}) translateY(${shiftY}px)`;
+    computer.style.transform = `rotateX(25deg) scale(${scale}) translateY(${shiftY}px)`;
 
     // ── Phase 3: Fade out scene (0.75 → 1.0) ─────────────────
     const p3 = easeInOut(clamp((raw - 0.75) / 0.25, 0, 1));
