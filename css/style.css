@@ -1031,10 +1031,7 @@ footer {
   width: 520px;
   height: 340px;
   transform-origin: bottom center;
-  /* NO preserve-3d — lid is a flat face in laptop's 3D space.
-     At rotateX(90deg) it is edge-on (thin line = closed).
-     Animates to rotateX(-15deg) = screen faces viewer = open. */
-  transform: rotateX(90deg);
+  transform: rotateX(7deg);
   will-change: transform;
 }
 
