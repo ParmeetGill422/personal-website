@@ -963,15 +963,15 @@ footer {
   background: linear-gradient(180deg, #2a2d35 0%, #1e2028 100%);
   border-radius: 6px 6px 14px 14px;
   width: 520px;
-  height: 70px;
+  height: 260px;
   position: relative;
   box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px 40px 0;
-  gap: 5px;
+  padding: 18px 40px 0;
+  gap: 6px;
 }
 
 [data-theme="light"] .lc-base {
@@ -993,8 +993,9 @@ footer {
   );
   border-radius: 2px;
 }
-.lc-key-row--2 { width: 90%; }
-.lc-key-row--3 { width: 60%; }
+.lc-key-row--fn { height: 4px; width: 100%; opacity: 0.5; }
+.lc-key-row--2  { width: 90%; }
+.lc-key-row--3  { width: 60%; }
 
 [data-theme="light"] .lc-key-row {
   background: repeating-linear-gradient(
@@ -1008,11 +1009,11 @@ footer {
 
 .lc-trackpad {
   position: absolute;
-  bottom: -8px;
+  bottom: -12px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 10px;
+  width: 140px;
+  height: 12px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 3px;
@@ -1025,13 +1026,13 @@ footer {
 /* Lid: anchored at base top, rotates on hinge */
 .lc-lid {
   position: absolute;
-  bottom: 70px; /* sits flush on top of base */
+  bottom: 260px; /* sits flush on top of taller base */
   left: 0;
   width: 520px;
   height: 340px;
   transform-origin: bottom center;
   transform-style: preserve-3d;
-  transform: rotateX(-120deg); /* CLOSED: lid flat, exterior faces camera */
+  transform: rotateX(90deg); /* CLOSED: lid folded back flat, exterior faces camera */
   will-change: transform;
 }
 
@@ -1221,10 +1222,10 @@ footer {
 
   /* Laptop scene — tablet/mobile */
   .laptop-computer   { width: 340px; }
-  .lc-base           { width: 340px; }
-  .lc-lid            { width: 340px; height: 220px; }
+  .lc-base           { width: 340px; height: 170px; padding: 14px 28px 0; }
+  .lc-lid            { width: 340px; height: 220px; bottom: 170px; }
   .lc-name           { font-size: 1.1rem; }
-  .lc-trackpad       { width: 90px; }
+  .lc-trackpad       { width: 90px; bottom: -10px; }
 }
 
 @media (max-width: 480px) {
@@ -1235,8 +1236,8 @@ footer {
   /* Laptop scene — small mobile */
   .laptop-intro-wrapper { height: 280vh; }
   .laptop-computer      { width: 280px; }
-  .lc-base              { width: 280px; height: 28px; }
-  .lc-lid               { width: 280px; height: 180px; }
+  .lc-base              { width: 280px; height: 140px; padding: 12px 22px 0; }
+  .lc-lid               { width: 280px; height: 180px; bottom: 140px; }
   .lc-name              { font-size: 0.95rem; }
-  .lc-trackpad          { width: 70px; }
+  .lc-trackpad          { width: 70px; bottom: -10px; }
 }
