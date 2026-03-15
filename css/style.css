@@ -916,6 +916,265 @@ footer {
   transform: translateY(0);
 }
 
+/* ── LAPTOP INTRO SCENE ──────────────────────────────────────── */
+
+/* Wrapper: tall scroll container */
+.laptop-intro-wrapper {
+  height: 350vh;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sticky panel stays in viewport */
+.laptop-intro-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: background var(--transition);
+}
+
+/* 3D perspective stage */
+.laptop-stage {
+  perspective: 1400px;
+  perspective-origin: 50% 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Laptop wrapper with slight downward tilt */
+.laptop-computer {
+  transform-style: preserve-3d;
+  transform: rotateX(12deg);
+  position: relative;
+  width: 520px;
+  will-change: transform;
+}
+
+/* Base / keyboard area */
+.lc-base {
+  background: linear-gradient(180deg, #2a2d35 0%, #1e2028 100%);
+  border-radius: 6px 6px 14px 14px;
+  width: 520px;
+  height: 32px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 40px 0;
+  gap: 4px;
+}
+
+[data-theme="light"] .lc-base {
+  background: linear-gradient(180deg, #c8c8c8 0%, #a8a8a8 100%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.lc-keyboard { width: 100%; display: flex; flex-direction: column; gap: 4px; }
+
+.lc-key-row {
+  height: 5px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.06) 0px,
+    rgba(255,255,255,0.06) 18px,
+    transparent 18px,
+    transparent 22px
+  );
+  border-radius: 2px;
+}
+.lc-key-row--2 { width: 90%; }
+.lc-key-row--3 { width: 60%; }
+
+[data-theme="light"] .lc-key-row {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0,0,0,0.12) 0px,
+    rgba(0,0,0,0.12) 18px,
+    transparent 18px,
+    transparent 22px
+  );
+}
+
+.lc-trackpad {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px;
+}
+[data-theme="light"] .lc-trackpad {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.1);
+}
+
+/* Lid: anchored at base top, rotates on hinge */
+.lc-lid {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 520px;
+  height: 340px;
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg); /* CLOSED */
+  will-change: transform;
+}
+
+/* Screen outer bezel */
+.lc-screen-outer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2c2f38 0%, #1a1c22 100%);
+  border-radius: 12px 12px 4px 4px;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.7), inset 0 0 0 8px #0d0e10;
+  backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 16px 10px;
+}
+[data-theme="light"] .lc-screen-outer {
+  background: linear-gradient(135deg, #b0b0b0 0%, #888 100%);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.3), inset 0 0 0 8px #555;
+}
+
+.lc-camera-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #333;
+  border: 1px solid #444;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+/* Screen display area */
+.lc-screen {
+  flex: 1;
+  width: 100%;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Screen UI content */
+.lc-screen-ui {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.lc-topbar {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.lc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.lc-dot.red    { background: #ff5f57; }
+.lc-dot.yellow { background: #febc2e; }
+.lc-dot.green  { background: #28c840; }
+
+.lc-screen-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.lc-eyebrow {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+.lc-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1;
+}
+.lc-name span { color: var(--gold); }
+
+.lc-role {
+  font-size: 0.5rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Lid back face (visible when closed) */
+.lc-lid-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2c2f38 0%, #1a1c22 100%);
+  border-radius: 12px 12px 4px 4px;
+  border: 2px solid rgba(255,255,255,0.08);
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+}
+[data-theme="light"] .lc-lid-back {
+  background: linear-gradient(135deg, #b0b0b0 0%, #888 100%);
+}
+
+/* Scroll prompt */
+.laptop-scroll-prompt {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fade-bob 2.5s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+}
+.laptop-scroll-prompt.hidden { opacity: 0; pointer-events: none; }
+
+/* Navbar hidden during laptop scene */
+#navbar {
+  transition: opacity 0.4s ease, box-shadow var(--transition),
+              background var(--transition), border-color var(--transition);
+}
+#navbar.laptop-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .about-grid        { grid-template-columns: 1fr; }
