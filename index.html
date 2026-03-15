@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parmeet Gill — IT & Cybersecurity Professional</title>
+  <title>Parmeet Gill — IT & Cybersecurity Professional | V2.0</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +17,52 @@
 
   <!-- Interactive Canvas Background -->
   <canvas id="bgCanvas"></canvas>
+
+  <!-- ── LAPTOP INTRO SCENE ── -->
+  <div id="laptopIntroWrapper" class="laptop-intro-wrapper">
+    <div class="laptop-intro-sticky">
+      <div class="laptop-stage" id="laptopStage">
+        <div class="laptop-computer" id="laptopComputer">
+          <!-- Base: keyboard + trackpad -->
+          <div class="lc-base">
+            <div class="lc-keyboard">
+              <div class="lc-key-row"></div>
+              <div class="lc-key-row lc-key-row--2"></div>
+              <div class="lc-key-row lc-key-row--3"></div>
+            </div>
+            <div class="lc-trackpad"></div>
+          </div>
+          <!-- Lid: rotates open on scroll -->
+          <div class="lc-lid" id="lcLid">
+            <div class="lc-screen-outer">
+              <div class="lc-camera-dot"></div>
+              <div class="lc-screen" id="lcScreen">
+                <div class="lc-screen-ui">
+                  <div class="lc-topbar">
+                    <span class="lc-dot red"></span>
+                    <span class="lc-dot yellow"></span>
+                    <span class="lc-dot green"></span>
+                  </div>
+                  <div class="lc-screen-body">
+                    <p class="lc-eyebrow">Hey, it's me</p>
+                    <h2 class="lc-name">Parmeet <span>Gill</span></h2>
+                    <p class="lc-role">IT &amp; Cybersecurity Professional</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Lid back face (visible when closed) -->
+            <div class="lc-lid-back"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Scroll prompt -->
+      <div class="laptop-scroll-prompt" id="laptopScrollPrompt">
+        <span>Scroll to open</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ── NAVBAR ── -->
   <nav id="navbar">
@@ -402,7 +448,7 @@
 
   <!-- ── FOOTER ── -->
   <footer>
-    <p>© 2026 Parmeet Gill — Built with passion &amp; code.</p>
+    <p>© 2026 Parmeet Gill — v2.0 · Built with passion &amp; code.</p>
   </footer>
 
   <script src="js/script.js"></script>
