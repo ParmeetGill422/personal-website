@@ -1196,10 +1196,25 @@ footer {
   .timeline-marker   { flex-direction: row; }
   .timeline-line     { display: none; }
   .about-stats       { grid-template-columns: 1fr 1fr; }
+
+  /* Laptop scene — tablet/mobile */
+  .laptop-computer   { width: 340px; }
+  .lc-base           { width: 340px; }
+  .lc-lid            { width: 340px; height: 220px; }
+  .lc-name           { font-size: 1.1rem; }
+  .lc-trackpad       { width: 90px; }
 }
 
 @media (max-width: 480px) {
   .section            { padding: 5rem 0; }
   .about-stats        { grid-template-columns: 1fr; }
   .contact-cards      { grid-template-columns: 1fr; }
+
+  /* Laptop scene — small mobile */
+  .laptop-intro-wrapper { height: 280vh; }
+  .laptop-computer      { width: 280px; }
+  .lc-base              { width: 280px; height: 28px; }
+  .lc-lid               { width: 280px; height: 180px; }
+  .lc-name              { font-size: 0.95rem; }
+  .lc-trackpad          { width: 70px; }
 }
