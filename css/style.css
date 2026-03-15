@@ -1031,7 +1031,7 @@ footer {
   height: 340px;
   transform-origin: bottom center;
   transform-style: preserve-3d;
-  transform: rotateX(3deg); /* CLOSED: slight tilt exposes top surface to camera */
+  transform: rotateX(-120deg); /* CLOSED: lid flat, exterior faces camera */
   will-change: transform;
 }
 
@@ -1132,7 +1132,7 @@ footer {
   letter-spacing: 0.05em;
 }
 
-/* Lid back face — the TOP of the closed laptop, visible from above */
+/* Lid back face — the EXTERIOR of the closed laptop lid (visible when closed) */
 .lc-lid-back {
   position: absolute;
   inset: 0;
@@ -1140,7 +1140,7 @@ footer {
   border-radius: 12px 12px 4px 4px;
   border: 1px solid rgba(255,255,255,0.1);
   transform: rotateX(180deg);
-  /* backface-visibility: visible — lid top must show when closed */
+  backface-visibility: hidden; /* shows only when lid is closed, hides when open */
   display: flex;
   align-items: center;
   justify-content: center;
